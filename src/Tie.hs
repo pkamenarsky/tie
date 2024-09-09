@@ -11,6 +11,7 @@
 module Tie
   ( Id (..)
   , TypedRef (..)
+  , Mode (..)
   , Resolved
   , Unresolved
 
@@ -87,7 +88,7 @@ data Id a = Id { unId :: a } | RemoveRec { unId :: a }
   deriving (Functor, Eq, Ord, Show, Generic)
   deriving anyclass NFData
 
-newtype TypedRef (v :: Mode -> Type) a = TypedRef { unTypedId :: a }
+newtype TypedRef (v :: Mode -> Type) a = TypedRef { unTypedRef :: a }
   deriving Functor
   deriving newtype (Eq, Ord, Show, NFData)
 
